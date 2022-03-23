@@ -4,18 +4,23 @@
   padding: 0;
   margin: 0;
 }
+
 $primary: #0e6fcc;
+
 body {
   font-family: "Nunito";
 }
+
 .topnav {
   display: flex;
   align-items: center;
   justify-content: space-around;
   padding: 15px;
+
   h1 {
     font-size: 26px;
   }
+
   .links {
     a {
       margin-right: 8px;
@@ -23,6 +28,7 @@ body {
       color: slategray;
     }
   }
+
   .profile {
     img {
       height: 40px;
@@ -32,26 +38,32 @@ body {
     }
   }
 }
+
 .main {
   display: flex;
   height: 100%;
+
   .sidenav {
     padding: 50px 80px;
+
     .profile {
       .head {
         display: flex;
         align-items: center;
         justify-content: center;
         margin-bottom: 50px;
+
         img {
           height: 60px;
           width: 60px;
           margin-right: 15px;
           border-radius: 100%;
         }
+
         .title {
           font-size: 20px;
         }
+
         .subtitle {
           font-size: 15px;
           color: slategray;
@@ -59,29 +71,35 @@ body {
       }
     }
   }
+
   .numbers {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     .num {
       margin-right: 15px;
       text-align: center;
+
       p:nth-child(1) {
         font-size: 14px;
         color: slategray;
         margin-bottom: 10px;
       }
+
       p:nth-child(2) {
         font-size: 20px;
       }
     }
   }
+
   .container {
-      overflow: scroll;
+    overflow: scroll;
     width: 100%;
     border-radius: 8px;
     border: 1px solid rgb(244, 242, 247);
     height: 86vh;
+
     header {
       padding: 20px;
       border-bottom: 1px solid rgb(244, 242, 247);
@@ -89,14 +107,16 @@ body {
       top: 0;
       background: #fff;
     }
+
     .input {
-        position: sticky;
-        bottom: 0;
+      position: sticky;
+      bottom: 0;
       display: flex;
       align-items: center;
       padding: 20px 10px;
       border-top: 1px solid rgb(244, 242, 247);
-background: #fff;
+      background: #fff;
+
       input {
         width: 90%;
         border-radius: 25px;
@@ -104,28 +124,34 @@ background: #fff;
         border: 1px solid rgb(244, 242, 247);
         background: transparent;
       }
+
       a {
         text-decoration: none;
         text-align: center;
         color: $primary;
       }
     }
+
     .chat {
       padding: 20px 40px;
-      
+
     }
   }
 }
-@media only screen and (max-width :600px){
-  
-  .topnav{
-    .links{
+
+@media only screen and (max-width :600px) {
+
+  .topnav {
+    .links {
       display: none;
     }
-  }.main{
-width: 100%;
-.sidenav{
-  display: none;
-}
+  }
+
+  .main {
+    width: 100%;
+
+    .sidenav {
+      display: none;
+    }
   }
 }
