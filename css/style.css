@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Nunito";
+  font-family: "Nunito", Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .topnav {
@@ -34,7 +34,6 @@ body {
   height: 40px;
   width: 40px;
   border-radius: 100%;
-  font-family: "Open Sans";
 }
 
 .main {
@@ -119,6 +118,7 @@ body {
   position: sticky;
   top: 0;
   background: #fff;
+  z-index: 2;
 }
 
 .main .container .input {
