@@ -72,5 +72,6 @@ sendBtn.addEventListener("click", (e) => {
     user.append(userInput);
     container.append(user);
     userText = " ";
-  }, 2000);
+    // change the time interval
+  }, 1000);
 });
