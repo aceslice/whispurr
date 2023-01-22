@@ -1,7 +1,6 @@
 .user {
   text-align: right;
 }
-
 .user p {
   padding: 15px 20px;
   border-radius: 25px;
@@ -17,8 +16,7 @@
   padding: 15px 20px;
   border-radius: 25px;
   color: #121212;
-  background-color: #f4f2f7;
+  background-color: rgb(244, 242, 247);
   display: inline-block;
   margin-bottom: 20px;
-}
-/*# sourceMappingURL=chat.css.map */
+}/*# sourceMappingURL=chat.css.map */

@@ -1,35 +1,27 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
 * {
   padding: 0;
   margin: 0;
 }
 
-body {
-  font-family: "Nunito", Verdana, Geneva, Tahoma, sans-serif;
+html {
+  font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .topnav {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  align-items: center;
+  justify-content: space-around;
   padding: 15px;
 }
-
 .topnav h1 {
   font-size: 26px;
 }
-
 .topnav .links a {
   margin-right: 8px;
   text-decoration: none;
   color: slategray;
 }
-
 .topnav .profile img {
   height: 40px;
   width: 40px;
@@ -37,119 +29,95 @@ body {
 }
 
 .main {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   height: 100%;
 }
-
 .main .sidenav {
   padding: 50px 80px;
 }
-
 .main .sidenav .profile .head {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-bottom: 50px;
+  align-items: center;
+  justify-content: left;
+  margin-bottom: 36px;
 }
-
 .main .sidenav .profile .head img {
   height: 60px;
   width: 60px;
   margin-right: 15px;
   border-radius: 100%;
 }
-
 .main .sidenav .profile .head .title {
   font-size: 20px;
 }
-
 .main .sidenav .profile .head .subtitle {
   font-size: 15px;
   color: slategray;
 }
-
 .main .numbers {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
-
 .main .numbers .num {
   margin-right: 15px;
   text-align: center;
 }
-
 .main .numbers .num p:nth-child(1) {
   font-size: 14px;
   color: slategray;
   margin-bottom: 10px;
 }
-
 .main .numbers .num p:nth-child(2) {
   font-size: 20px;
 }
-
 .main .container {
+  display: fixed;
   overflow: scroll;
   width: 100%;
   border-radius: 8px;
-  border: 1px solid #f4f2f7;
-  height: 86vh;
+  border: 1px solid rgb(244, 242, 247);
+  height: 100%;
 }
-
 .main .container header {
   padding: 20px;
-  border-bottom: 1px solid #f4f2f7;
+  border-bottom: 1px solid rgb(244, 242, 247);
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   background: #fff;
   z-index: 2;
 }
-
 .main .container .input {
   position: -webkit-sticky;
   position: sticky;
   bottom: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   padding: 20px 10px;
-  border-top: 1px solid #f4f2f7;
+  border-top: 1px solid rgb(244, 242, 247);
   background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
 }
-
 .main .container .input input {
-  width: 90%;
+  flex: 2;
   border-radius: 25px;
-  padding: 15px;
-  border: 1px solid #f4f2f7;
+  padding: 20px;
+  border: 1px solid rgb(244, 242, 247);
   background: transparent;
 }
-
 .main .container .input a {
   text-decoration: none;
   text-align: center;
   color: #0e6fcc;
+  background: #0e6fcc;
+  color: #fff;
+  padding: 12px 60px;
+  border-radius: 25px;
 }
-
 .main .container .chat {
   padding: 20px 40px;
 }
@@ -164,5 +132,4 @@ body {
   .main .sidenav {
     display: none;
   }
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
