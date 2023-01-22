@@ -1,12 +1,13 @@
+// Get the send button
 let sendBtn = document.querySelector(".send");
+
+// Get the chat container
 let container = document.querySelector(".chat");
 
+// Event to be performed when user taps on send button
 sendBtn.addEventListener("click", (e) => {
   e.preventDefault();
   let userText = document.querySelector(".user-input").value;
-  if (userText.length === 0 || userText === " ") {
-    doNothing();
-  }
   let user = document.createElement("div");
   let userInput = document.createElement("p");
   let input = document.createTextNode(userText);
@@ -17,11 +18,15 @@ sendBtn.addEventListener("click", (e) => {
   setTimeout(() => {
     let botText;
     let userText = document.querySelector(".user-input").value;
+
+    // A collection of greeting responses for the bot
     let greetingResponse = [
       "Hello, I am Botty.",
       "Howdy mate.",
       "Hey, how has it been?",
     ];
+
+    // A collection of greeting texts accepted by the bot
     let greeting = [
       "hi",
       "hello",
@@ -60,6 +65,7 @@ sendBtn.addEventListener("click", (e) => {
             chatUpResponse[Math.floor(Math.random() * chatUpResponse.length)];
           break;
         } else {
+          // The bot return whatever texts you typed back to you since it does not match its predifined texts
           botText = userText;
         }
       }
@@ -72,6 +78,7 @@ sendBtn.addEventListener("click", (e) => {
     user.append(userInput);
     container.append(user);
     userText = " ";
-    // change the time interval
+    // Fix by Kofi Pascal
+    // Make the bot respond within a second
   }, 1000);
 });
