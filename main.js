@@ -65,7 +65,7 @@ sendBtn.addEventListener("click", (e) => {
             chatUpResponse[Math.floor(Math.random() * chatUpResponse.length)];
           break;
         } else {
-          // The bot return whatever texts you typed back to you since it does not match its predifined texts
+          // Return texts that do not match predefined query
           botText = userText;
         }
       }
@@ -77,8 +77,7 @@ sendBtn.addEventListener("click", (e) => {
     userInput.append(input);
     user.append(userInput);
     container.append(user);
-    userText = " ";
     // Fix by Kofi Pascal
-    // Make the bot respond within a second
+    // Bot responds within a second
   }, 1000);
 });
