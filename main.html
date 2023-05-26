@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WhatsApp Chat Bubble Replica</title>
+  <style>
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+  .chat-bubble {
+  position: relative;
+  display: inline-block;
+  background-color: #DCF8C6;
+  border-radius: 10px;
+  padding: 10px 20px;
+  max-width: 70%;
+  margin: 200px;
+}
+
+.chat-bubble::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -10px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: transparent #DCF8C6 transparent transparent;
+}
+
+
+  </style>
+</head>
+<body>
+    <div class="chat-bubble">
+        <p class="message">Hello! How are you</p>
+      </div>
+      
+</body>
+</html>

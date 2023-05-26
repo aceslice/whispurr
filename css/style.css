@@ -82,14 +82,12 @@ html {
 .main .container header {
   padding: 20px;
   border-bottom: 1px solid rgb(244, 242, 247);
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   background: #fff;
   z-index: 2;
 }
 .main .container .input {
-  position: -webkit-sticky;
   position: sticky;
   bottom: 0;
   display: flex;
