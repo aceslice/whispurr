@@ -40,7 +40,7 @@ function encryptMessages() {
     messages.forEach((message, index) => {
         const text = message.textContent;
         message.setAttribute("data-custom", numCrypt(text).numcrypt);
-        message.innerHTML = (emojiMessage(numCrypt(text).numcrypt));
+        message.innerHTML = parseWithTwemoji(emojiMessage(numCrypt(text).numcrypt));
     });
 }
 function decryptMessages() {
@@ -106,7 +106,7 @@ function decrypt(text) {
 }
 function parseWithTwemoji(text) {
     const container = document.createElement("div");
-    // container.innerHTML = twemoji.parse(text);
+    container.innerHTML = twemoji.parse(text);
     return container.innerHTML;
 }
 function emojiMessage(message) {
