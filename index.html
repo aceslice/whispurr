@@ -4,18 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/chat.css" />
+    <link rel="stylesheet" href="./public/css/chat.css" />
+    <link rel="stylesheet" href="./public/css/style.css" />
     <script
       src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js"
       crossorigin="anonymous"
     ></script>
     <style>
-      .emoji {
-        font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-          "Noto Color Emoji", "Android Emoji", "EmojiSymbols", "EmojiOne",
-          "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      }
     </style>
 
     <title>Chat App</title>
@@ -47,7 +42,7 @@
             <a href="#" class="back"
               ><img src="../img/chevron-left.svg" alt="back" class="ico"
             /></a>
-            <img src="../img/avatar.png" alt="avatar" />
+            <img src="./img/avatar.png" alt="avatar" />
             <div class="description">
               <p class="title">Gideon Appau <span class="subtitle">• <span class="username">@ace</span></span></p>
               <p class="subtitle" direction="right">Last seen 4 minutes ago</p>
@@ -73,7 +68,7 @@
           </div>
           <div class="bot">
             <p class="message">Not that I know of. Wanna hang out tonight?</p>
-            <img src="../img/avatar.png" alt="" class="profile" />
+            <img src="./img/avatar.png" alt="" class="profile" />
 
           </div>
           <div class="user">
@@ -86,7 +81,7 @@
           </div>
           <div class="bot">
             <p class="message">Hurray!! By the way, bills on me. 🎉</p>
-            <img src="../img/avatar.png" alt="" class="profile" />
+            <img src="./img/avatar.png" alt="" class="profile" />
 
           </div>
           <div class="form">
@@ -95,17 +90,17 @@
               placeholder="What's on your mind!!"
               class="user-input"
             />
-            <img src="../img/send.svg" alt="send" class="send" />
+            <img src="./img/send.svg" alt="send" class="send" />
           </div>
         </section>
       </div>
     </div>
     
 
-    <script type="module" src="script.js"></script>
+    <script type="module" src="./public/script.js"></script>
   
     <script>
-      twemoji.parse(document);
+            twemoji.parse(document.body);
     </script>
   </body>
 </html>

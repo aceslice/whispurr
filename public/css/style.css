@@ -11,6 +11,9 @@ html {
 body {
   overflow-x: hidden;
   padding: 0 30px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 html {

@@ -2,105 +2,120 @@ import { predefinedQueries } from "./queries.js";
 import { randomEmo } from "./randomEmo.js";
 
 // Get references to DOM elements
-const userInputElement = document.querySelector(".user-input") as HTMLInputElement;
+const userInputElement = document.querySelector(
+  ".user-input"
+) as HTMLInputElement;
 const send = document.querySelector(".send");
-const chatContainer = document.querySelector(".chat");
-const toggle = document.getElementById("toggleEncryption")
-let userText = userInputElement.value;
+const chatContainer = document.querySelector(".chat")!;
+const toggle = document.getElementById("toggleEncryption");
 
-function handleClick(event:any) {
-  const doubleClickedElement = event.getAttribute("data-custom");
-  return doubleClickedElement;
-}
-const messages = document.querySelectorAll(".message");
+// Function to handle click event
 
-let encryptionEnabled = false;
+const messages = document.querySelectorAll(".message"); // Select all elements with class "message"
 
-let key = generateEncryptionKey();
+let encryptionEnabled = false; // Flag to track if encryption is enabled or not
 
+let key = generateEncryptionKey(); // Generate an encryption key
 
+// Add event listener to the toggle switch
 toggle?.addEventListener("change", handleToggle);
 
+// Function to handle the toggle switch
 function handleToggle(event: Event) {
   const isChecked = (event.target as HTMLInputElement).checked;
-  
+
   if (isChecked) {
+    // Encryption is enabled
     encryptionEnabled = true;
-    encryptMessages();
-    addDecryptionListener();
+    encryptMessages(); // Encrypt all messages
+    addDecryptionListener(); // Add decryption listener to messages
   } else {
     const password = prompt("Enter password or PIN:");
-    if (password === "password") { 
+    if (password === "password") {
+      // Correct password entered, disable encryption
       encryptionEnabled = false;
-      decryptMessages();
-      removeDecryptionListener();
+      decryptMessages(); // Decrypt all messages
+      removeDecryptionListener(); // Remove decryption listener from messages
     } else {
+      // Wrong password entered, show alert and revert the toggle switch
       alert("Wrong password. Please try again.");
-      // Revert the toggle switch back to the "on" position
       (event.target as HTMLInputElement).checked = true;
     }
   }
 }
 
+// Function to encrypt messages
 function encryptMessages() {
   const messages = document.querySelectorAll(".message");
   messages.forEach((message, index) => {
     const text = message.textContent;
-    message.setAttribute("data-custom", numCrypt(text).numcrypt);
-    message.innerHTML = emojiMessage(numCrypt(text).numcrypt);
+    message.setAttribute("data-custom", numCrypt(text).numcrypt); // Encrypt message text and set as attribute
+    message.innerHTML = emojiMessage(numCrypt(text).numcrypt); // Convert encrypted message to emojis
   });
 }
 
+// Function to decrypt messages
 function decryptMessages() {
   const messages = document.querySelectorAll(".message");
   messages.forEach((message) => {
-    const text = message.getAttribute("data-custom");
-    message.innerHTML = decrypt(text);
+    const text = message.getAttribute("data-custom"); // Get encrypted message from attribute
+    message.innerHTML = decrypt(text); // Decrypt and set message content
   });
 }
 
+// Function to add decryption listener to messages
 function addDecryptionListener() {
   messages.forEach((message) => {
     message.addEventListener("dblclick", handleDecryption);
   });
 }
 
+// Function to remove decryption listener from messages
 function removeDecryptionListener() {
   messages.forEach((message) => {
     message.removeEventListener("dblclick", handleDecryption);
   });
 }
 
-function handleDecryption(event:any) {
+// Function to handle decryption on double-click
+function handleDecryption(event: any) {
   const clickedElement = event.target;
-  const encryptedText = clickedElement.getAttribute("data-custom");
-  clickedElement.innerHTML = decrypt(encryptedText);
+  const encryptedText = clickedElement.getAttribute("data-custom"); // Get encrypted text
+  clickedElement.innerHTML = decrypt(encryptedText); // Decrypt and set message content
 }
 
-
-send?.addEventListener("click", ()=>{
+// Event listener for send button click
+send?.addEventListener("click", () => {
   sendMessage();
-})
+});
+
+// Event listener for user input (Enter key)
 userInputElement.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     sendMessage();
   }
 });
+
+// Function to generate an encryption key
 function generateEncryptionKey() {
-    let encryptionKey = " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890~`!@#$%^&*()_+}{\":;'[]=-?><,./"
-          .split("")
-          .sort(() => Math.random() - 0.5)
-          .join("");
+  let encryptionKey =
+    " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890~`!@#$%^&*()_+}{\":;'[]=-?><,./"
+      .split("")
+      .sort(() => Math.random() - 0.5)
+      .join("");
   return encryptionKey;
 }
+
+// Function to encrypt text using the encryption key
 function numCrypt(text: any) {
   let result = [];
   for (let t of text) {
     result.push(" " + (key.includes(t) ? key.indexOf(t) : t));
-  }  
-  return {numcrypt:result.join("").toString(), result: result};
+  }
+  return { numcrypt: result.join("").toString(), result: result };
 }
 
+// Function to decrypt text using the encryption key
 function decrypt(text: any) {
   let result = [];
   let arrText: any = text.split(" ");
@@ -119,48 +134,48 @@ function decrypt(text: any) {
 }
 
 
-function parseWithTwemoji(text: string) {
-  const container = document.createElement("div");
-  // container.innerHTML = twemoji.parse(text);
-  return container.innerHTML;
-}
-function emojiMessage(message: any){
-  let emojis = randomEmo()
+// Function to convert encrypted numbers to emojis
+function emojiMessage(message: any) {
+  let emojis = randomEmo();
   message = message.trim();
-  
-    const numbersArray = message.split(" ");
-    const emojiIndexes = numbersArray.map((numberStr:any) => parseInt(numberStr.trim(), 10));
-    message = " ";
-    emojiIndexes.forEach((emojiIndex:any) => {
-      message+=emojis[emojiIndex]
-    })
-    return message;
+
+  const numbersArray = message.split(" ");
+  const emojiIndexes = numbersArray.map((numberStr: any) =>
+    parseInt(numberStr.trim(), 10)
+  );
+  message = " ";
+  emojiIndexes.forEach((emojiIndex: any) => {
+    message += emojis[emojiIndex];
+  });
+  return message;
 }
+
+// Function to send a user message
 function sendMessage() {
-  // Trim the input message to remove leading and trailing spaces
-  const trimmedMessage = userInputElement.value.trim();
+  const trimmedMessage = userInputElement.value.trim(); // Trim the input message
 
   if (trimmedMessage === "") {
     return null;
   }
 
-  // Clear the input field
-  userInputElement.value = "";
+  userInputElement.value = ""; // Clear the input field
 
   let messageToSend;
   if (encryptionEnabled) {
-    messageToSend = emojiMessage(numCrypt(trimmedMessage).numcrypt);
+    messageToSend = emojiMessage(numCrypt(trimmedMessage).numcrypt); // Encrypt and convert to emojis
   } else {
     messageToSend = trimmedMessage;
   }
 
   const textContainer = document.createElement("p");
-  let userMesmesage = document.createTextNode(messageToSend);
-  textContainer.appendChild(userMesmesage);
+  let userMessasge = document.createTextNode(messageToSend);
+  textContainer.setAttribute("data-custom", numCrypt(trimmedMessage).numcrypt);
+  textContainer.appendChild(userMessasge);
   textContainer.classList.add("message");
   const imgElement = document.createElement("img");
   imgElement.classList.add("profile");
-  const imgUrl = "https://pps.whatsapp.net/v/t61.24694-24/328285645_172177382232243_4245884041119970448_n.jpg?ccb=11-4&oh=01_AdQyus8S6MszWvuP5E6TxdAv3SIcggMz7jgdAl6H0p28FA&oe=647E2131";
+  const imgUrl =
+    "https://pps.whatsapp.net/v/t61.24694-24/328285645_172177382232243_4245884041119970448_n.jpg?ccb=11-4&oh=01_AdQyus8S6MszWvuP5E6TxdAv3SIcggMz7jgdAl6H0p28FA&oe=647E2131";
   imgElement.src = imgUrl;
   const userElement = document.createElement("div");
   userElement.classList.add("user");
@@ -169,23 +184,24 @@ function sendMessage() {
 
   chatContainer?.appendChild(userElement);
   userElement.scrollIntoView(true);
+
   setTimeout(() => {
-    reply(trimmedMessage);
+    reply(trimmedMessage); // Send a reply after a delay
   }, 1000);
 }
 
-function reply(userText:any) {
-  // Check if the user's input matches any predefined query
-  const botText =
-    predefinedQueries[userText.toLowerCase()] || "I'm sorry, I don't understand.";
-    let messageToSend;
+// Function to generate a reply based on user input
+function reply(userText: any) {
+  const botText = predefinedQueries[userText.toLowerCase()] || userText;
+  let messageToSend;
   if (encryptionEnabled) {
-    messageToSend = emojiMessage(numCrypt(botText).numcrypt);
+    messageToSend = emojiMessage(numCrypt(botText).numcrypt); // Encrypt and convert to emojis
   } else {
     messageToSend = botText || botText;
   }
 
   const textContainer = document.createElement("p");
+  textContainer.setAttribute("data-custom", numCrypt(botText).numcrypt);
   const botMessage = document.createTextNode(messageToSend);
   textContainer.appendChild(botMessage);
   textContainer.classList.add("message");
@@ -202,3 +218,24 @@ function reply(userText:any) {
   chatContainer?.appendChild(userElement);
   userElement.scrollIntoView(true);
 }
+const observer = new MutationObserver((mutationsList) => {
+  // Callback function to execute when a mutation occurs
+
+  // Check if any new nodes have been added to the body
+  for (let mutation of mutationsList) {
+    if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+      console.log("toggled");
+      
+      // twemoji.parse(document.body);
+    }
+  }
+});
+
+// Configure the observer to watch for changes in the child nodes
+const observerConfig = { childList: true };
+
+// Start observing the body for mutations
+observer.observe(chatContainer, observerConfig);
+
+// To stop observing, you can use:
+// observer.disconnect();

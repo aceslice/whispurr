@@ -10,6 +10,7 @@ html{
 body{
   overflow-x: hidden;
   padding: 0 30px;
+  user-select: none;
 }
 
 $primary: #007bff;
