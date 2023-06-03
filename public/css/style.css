@@ -218,7 +218,7 @@ html {
   }
   .main .container .chat .form {
     position: fixed;
-    bottom: 10px;
-    width: 80%;
+    bottom: 5px;
+    width: 90%;
   }
 }/*# sourceMappingURL=style.css.map */
