@@ -19,6 +19,7 @@ function handleToggle(event) {
         encryptionEnabled = true;
         encryptMessages(); // Encrypt all messages
         addDecryptionListener(); // Add decryption listener to messages
+        twemoji.parse(document.body)
     }
     else {
         const password = prompt("Enter password or PIN:");
@@ -147,7 +148,7 @@ function sendMessage() {
     textContainer.classList.add("message");
     const imgElement = document.createElement("img");
     imgElement.classList.add("profile");
-    const imgUrl = "https://pps.whatsapp.net/v/t61.24694-24/328285645_172177382232243_4245884041119970448_n.jpg?ccb=11-4&oh=01_AdQyus8S6MszWvuP5E6TxdAv3SIcggMz7jgdAl6H0p28FA&oe=647E2131";
+    const imgUrl = "https://pps.whatsapp.net/v/t61.24694-24/322231611_731148275454076_7263505151536066243_n.jpg?ccb=11-4&oh=01_AdS9uqAHqshGtZjPIHN657tFfM2WNrURFQizjDWRJSI9xg&oe=64A3B81D";
     imgElement.src = imgUrl;
     const userElement = document.createElement("div");
     userElement.classList.add("user");
