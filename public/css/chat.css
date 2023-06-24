@@ -14,8 +14,8 @@
 }
 
 .user .profile, .bot .profile {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   border-radius: 100%;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .user:last-child, .bot:last-child {
-  margin-bottom: 48px;
+  margin-bottom: 52px;
 }
 
 @media only screen and (min-device-width: 0) and (max-device-width: 767px) {

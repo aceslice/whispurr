@@ -187,7 +187,7 @@ function sendMessage() {
 
   setTimeout(() => {
     reply(trimmedMessage); // Send a reply after a delay
-  }, 1000);
+  }, 3000);
 }
 
 // Function to generate a reply based on user input

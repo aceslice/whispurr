@@ -19,8 +19,6 @@ function handleToggle(event) {
         encryptionEnabled = true;
         encryptMessages(); // Encrypt all messages
         addDecryptionListener(); // Add decryption listener to messages
-        twemoji.parse(document.body);
-
     }
     else {
         const password = prompt("Enter password or PIN:");
@@ -29,8 +27,6 @@ function handleToggle(event) {
             encryptionEnabled = false;
             decryptMessages(); // Decrypt all messages
             removeDecryptionListener(); // Remove decryption listener from messages
-            twemoji.parse(document.body);
-
         }
         else {
             // Wrong password entered, show alert and revert the toggle switch
@@ -161,7 +157,7 @@ function sendMessage() {
     userElement.scrollIntoView(true);
     setTimeout(() => {
         reply(trimmedMessage); // Send a reply after a delay
-    }, 1000);
+    }, 3000);
 }
 // Function to generate a reply based on user input
 function reply(userText) {
@@ -194,6 +190,7 @@ const observer = new MutationObserver((mutationsList) => {
     // Check if any new nodes have been added to the body
     for (let mutation of mutationsList) {
         if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+            console.log("toggled");
             twemoji.parse(document.body);
         }
     }
