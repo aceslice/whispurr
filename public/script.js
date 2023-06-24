@@ -192,7 +192,7 @@ const observer = new MutationObserver((mutationsList) => {
     for (let mutation of mutationsList) {
         if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
             console.log("toggled");
-            // twemoji.parse(document.body);
+            twemoji.parse(document.body);
         }
     }
 });
