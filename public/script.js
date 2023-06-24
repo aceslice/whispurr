@@ -19,6 +19,7 @@ function handleToggle(event) {
         encryptionEnabled = true;
         encryptMessages(); // Encrypt all messages
         addDecryptionListener(); // Add decryption listener to messages
+        twemoji.parse(document.body)
     }
     else {
         const password = prompt("Enter password or PIN:");

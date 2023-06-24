@@ -204,6 +204,13 @@ html {
   .main .left, .topnav {
     display: none;
   }
+  .main .container {
+    position: relative;
+    padding: 10px;
+  }
+  .main .container header {
+    padding: 0;
+  }
   .main .container header .details .ico {
     display: none;
   }
@@ -215,10 +222,11 @@ html {
     height: 100%;
     width: 100%;
     background: #fff;
+    padding: 0;
   }
   .main .container .chat .form {
     position: fixed;
     bottom: 5px;
-    width: 90%;
+    width: 95%;
   }
 }/*# sourceMappingURL=style.css.map */
