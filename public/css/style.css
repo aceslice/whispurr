@@ -203,9 +203,6 @@ html {
     padding: 0;
     font-size: 14px;
   }
-  .topnav {
-    background-color: #fff;
-  }
   .main .left, .topnav {
     display: none;
   }
@@ -214,7 +211,8 @@ html {
     padding: 10px;
   }
   .main .container header {
-    padding: 10px;
+    padding: 5px;
+    background: #fff;
   }
   .main .container header .details .ico {
     display: none;
