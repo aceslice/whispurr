@@ -63,7 +63,7 @@
 }
 
 .user:last-child, .bot:last-child {
-  margin-bottom: 60px;
+  margin-bottom: 32px;
 }
 
 @media only screen and (min-device-width: 0) and (max-device-width: 767px) {
