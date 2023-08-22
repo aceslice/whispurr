@@ -148,7 +148,7 @@ function sendMessage() {
     textContainer.classList.add("message");
     const imgElement = document.createElement("img");
     imgElement.classList.add("profile");
-    const imgUrl = "https://pps.whatsapp.net/v/t61.24694-24/322231611_731148275454076_7263505151536066243_n.jpg?ccb=11-4&oh=01_AdS9uqAHqshGtZjPIHN657tFfM2WNrURFQizjDWRJSI9xg&oe=64A3B81D";
+    const imgUrl = "https://avatars.githubusercontent.com/u/64356627?v=4";
     imgElement.src = imgUrl;
     const userElement = document.createElement("div");
     userElement.classList.add("user");
