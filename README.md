@@ -1,7 +1,7 @@
 
 # Whispurr😺
 
-A simple web messaging client that allows users to send, receive and encrypt text messages in emojis. 
+A frontend prototype of a text messaging application that allows users to send, receive and encrypt text messages in emojis. 
 [Still in development, Demo Available]
 
 
